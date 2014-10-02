@@ -1,0 +1,399 @@
+/**
+ * @section Typography
+ * Sets font styles for entire site
+ */
+
+html{
+	font-smoothing: subpixel-antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+body {
+	font-family: $font-primary;
+	font-size: $font-base;
+	line-height: 1.5;
+	color: $color-black;
+	background: $color-white;
+
+	@media (min-width: $bp-medium) {
+		line-height: 1.5625;
+	}
+
+	@if $font-base != $font-xlarge-screens {
+		@media (min-width: $bp-xlarge) {
+			font-size: $font-xlarge-screens;
+		}
+	}
+}
+
+p {
+	margin-bottom: $spacing;
+}
+
+
+/**
+ * Sizes for smaller and larger text
+ */
+
+.text-small {
+	font-size: 16px;
+	line-height: 24px;
+}
+$text-small: 16px;
+
+.text-tall {
+	font-size: 20px;
+	line-height: 28px;
+}
+$text-tall: 20px;
+
+@media (min-width: $bp-medium) {
+	.text-tall {
+		font-size: 24px;
+		font-size: 28px;
+	}
+	$text-tall: 24px;
+}
+
+/**
+ * Small Caps
+ */
+ @mixin smallcaps($font-size) {
+	text-transform: uppercase;
+	letter-spacing: .1em;
+	font-size: $font-size;
+}
+
+/**
+ * Alternate text colors
+ */
+
+.text-muted {
+	color: $color-gray-dark;
+}
+.text-primary{
+ color: $color-primary;
+}
+.text-black{
+ color: $color-black;
+}
+.text-white{
+ color: $color-white;
+}
+.text-success{
+ color: $color-success;
+}
+.text-danger{
+ color: $color-danger;
+}
+.text-warning{
+ color: $color-warning;
+}
+.text-code{
+ color: $color-code;
+}
+.text-darkgrey{
+ color: $color-gray-dark;
+}
+.text-lightgrey{
+ color: $color-gray-light;
+}
+
+/**
+ * Hyperlink styling
+ */
+
+a,
+a:visited {
+	color: $color-primary;
+	text-decoration: none;
+	word-wrap: break-word;
+}
+
+a:hover,
+a:focus,
+a:active {
+	color: darken( $color-primary, 15% );
+	text-decoration: underline;
+}
+
+a img {
+	border: none;
+	background: none;
+}
+
+/**
+ * Prevents border/background on linked image hover.
+ * Adds slight opacity.
+ */
+a:hover img {
+	border: none;
+	background: none;
+	opacity: 0.8;
+	filter: alpha(opacity=80);
+}
+
+
+/**
+ * List styling
+ */
+
+ul,
+ol,
+dl {
+	margin-bottom: $spacing;
+	margin-left: calc-em(32px);
+}
+
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+	margin-bottom: 0;
+}
+
+ul {
+	list-style: disc;
+}
+
+ol {
+	list-style: decimal;
+}
+
+dl {
+	margin-left: 0;
+}
+
+dt {
+	font-weight: bold;
+}
+
+/**
+ * Removes list styling.
+ * For semantic reasons, should only be used on unordered lists.
+ */
+.list-unstyled {
+	margin-left: 0;
+	list-style: none;
+}
+
+/**
+ * Type-size-calc
+ */
+ $line-height: 1.3;
+
+ @mixin type-size-calc($font-size) {
+	font-size: $font-size*1.0;
+	line-height: $font-size*1.0*$line-height;
+}
+ @mixin type-size-calc-xlarge($font-size) {
+	font-size: $font-size*0.8;
+	line-height: $font-size*0.8*$line-height;
+}
+ @mixin type-size-calc-large($font-size) {
+	font-size: $font-size*0.65;
+	line-height: $font-size*0.65*$line-height;
+}
+ @mixin type-size-calc-medium($font-size) {
+	font-size: $font-size*0.525;
+	line-height: $font-size*0.525*$line-height;
+}
+ @mixin type-size-calc-small($font-size) {
+	font-size: $font-size*0.425;
+	line-height: $font-size*0.425*$line-height;
+}
+ @mixin type-size-calc-xsmall($font-size) {
+	font-size: $font-size*0.35;
+	line-height: $font-size*0.35*$line-height;
+}
+
+/**
+ * Heading styling for h1 through h6 elements.
+ * Heading class lets you use one heading type for semantics, but style it as another heading type.
+ */
+
+h1, h2, h3, h4, h5, h6 {
+	line-height: 1.3;
+	font-weight: normal;
+	margin-bottom: 1em;
+	padding-top: 1em;
+	word-wrap: break-word;
+}
+
+h1,
+.h1 {
+	@include type-size-calc(180px);
+	@media (max-width: $bp-xlarge) {
+		@include type-size-calc-xlarge(180px);
+	}
+	@media (max-width: $bp-large) {
+		@include type-size-calc-large(180px);
+	}
+	@media (max-width: $bp-medium) {
+		@include type-size-calc-medium(180px);
+	}
+	@media (max-width: $bp-small) {
+		@include type-size-calc-small(180px);
+	}
+	@media (max-width: $bp-xsmall) {
+		@include type-size-calc-xsmall(180px);
+	}
+}
+h2,
+.h2 {
+	@include type-size-calc(148px);
+	@media (max-width: $bp-xlarge) {
+		@include type-size-calc-xlarge(148px);
+	}
+	@media (max-width: $bp-large) {
+		@include type-size-calc-large(148px);
+	}
+	@media (max-width: $bp-medium) {
+		@include type-size-calc-medium(148px);
+	}
+	@media (max-width: $bp-small) {
+		@include type-size-calc-small(148px);
+	}
+	@media (max-width: $bp-xsmall) {
+		@include type-size-calc-xsmall(148px);
+	}
+}
+h3,
+.h3 {
+	@include type-size-calc(124px);
+	@media (max-width: $bp-xlarge) {
+		@include type-size-calc-xlarge(124px);
+	}
+	@media (max-width: $bp-large) {
+		@include type-size-calc-large(124px);
+	}
+	@media (max-width: $bp-medium) {
+		@include type-size-calc-medium(124px);
+	}
+	@media (max-width: $bp-small) {
+		@include type-size-calc-small(124px);
+	}
+	@media (max-width: $bp-xsmall) {
+		@include type-size-calc-xsmall(124px);
+	}
+}
+h4,
+.h4 {
+	@include type-size-calc(96px);
+	@media (max-width: $bp-xlarge) {
+		@include type-size-calc-xlarge(96px);
+	}
+	@media (max-width: $bp-large) {
+		@include type-size-calc-large(96px);
+	}
+	@media (max-width: $bp-medium) {
+		@include type-size-calc-medium(96px);
+	}
+	@media (max-width: $bp-small) {
+		@include type-size-calc-small(96px);
+	}
+	@media (max-width: $bp-xsmall) {
+		@include type-size-calc-xsmall(96px);
+	}
+}
+h5, 
+.h5 {
+	@include type-size-calc(54px);
+	@media (max-width: $bp-xlarge) {
+		@include type-size-calc-xlarge(54px);
+	}
+	@media (max-width: $bp-large) {
+		@include type-size-calc-large(54px);
+	}
+	@media (max-width: $bp-medium) {
+		@include type-size-calc-medium(54px);
+	}
+	@media (max-width: $bp-small) {
+		@include type-size-calc-small(54px);
+	}
+	@media (max-width: $bp-xsmall) {
+		@include type-size-calc-xsmall(54px);
+	}
+}
+h6,
+.h6 {
+	@include type-size-calc(20px);
+	@media (max-width: $bp-medium) {
+		@include type-size-calc-medium(14px);
+	}
+}
+
+
+/**
+ * Lines, Quotes and Emphasis
+ */
+
+hr {
+	margin: calc-em(32px) auto;
+	border: 0;
+	border-top: calc-em(1px) solid $color-gray-light;
+	border-bottom: 0 solid $color-white;
+}
+
+strong {
+	font-weight: bold;
+}
+
+em {
+	font-style: italic;
+}
+
+sub,
+sup {
+	position: relative;
+	font-size: 85%;
+	font-weight: bold;
+	line-height: 0;
+	vertical-align: baseline;
+	margin-left: calc-em(4px);
+}
+
+sup {
+	top: calc-em(-8px);
+}
+
+sub {
+	bottom: calc-em(-4px);
+}
+
+/**
+ * Highlighting colors
+ */
+::selection {
+	color: $color-white;
+	background: $color-primary;
+}
+
+::-moz-selection {
+	color: $color-white;
+	background: $color-primary;
+}
+
+/**
+ * Blockquotes
+ */
+
+blockquote {
+	border-left: calc-em(4px) solid $color-gray-light;
+	margin-bottom: $spacing;
+	padding-left: $spacing;
+	padding-right: $spacing;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: '';
+	content: none;
+}
+

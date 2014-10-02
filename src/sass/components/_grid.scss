@@ -1,0 +1,124 @@
+/**
+ * @section Grid
+ * Structure and layout
+ */
+
+/**
+ * Base grid styles: single column
+ */
+.container {
+	max-width: $container-max;
+	width: $container-width;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.row {
+	margin-left: $grid-margins * -1;
+	margin-right: $grid-margins * -1;
+	margin-top: 5em;
+	margin-bottom: 5em;
+}
+
+%grid-base {
+	float: left;
+	width: 100%;
+	padding-left: $grid-margins;
+	padding-right: $grid-margins;
+}
+
+@each $grid, $width in ($grid-sizes) {
+	.grid-#{$grid} {
+		@extend %grid-base;
+	}
+}
+
+
+/**
+ * Reverses order of grid for content choreography
+ */
+.grid-flip {
+	float: right;
+}
+
+
+/**
+ * Add columns to grid on bigger screens
+ */
+@each $breakpoint, $prefix, $offset in ($grid-breakpoints){
+	@media (min-width: $breakpoint) {
+		@each $grid, $width in ($grid-sizes) {
+			#{$prefix} .grid-#{$grid} {
+				width: $width;
+			}
+		}
+		@if $offset {
+			@each $grid, $width in ($grid-sizes) {
+				#{$prefix} .offset-#{$grid} {
+					margin-left: $width;
+				}
+			}
+		}
+	}
+}
+
+/**
+ * Image gallery
+ */
+.grid-img {
+	@media (min-width: $bp-xsmall)  { width: 50%; }
+	@media (min-width: $bp-small) { width: 33.33333333333%; }
+	@media (min-width: $bp-medium)  { width: 25%; }
+}
+
+/* Add clearfix */
+.container,
+.row {
+	@extend .group;
+}
+
+/* No padding grid */
+.full{
+	width: 100%;
+}
+.half{
+	width: 50%;
+	@include max-screen($bp-small){
+		width: 100%;
+	}
+}
+.third{
+	width: 33.3333333%;
+	@include max-screen($bp-small){
+		width: 100%;
+	}
+}
+.quater{
+	width: 25%;
+	@include max-screen($bp-small){
+		width: 50%;
+	}
+}
+.fifth{
+	width: 20%;
+	@include max-screen($bp-small){
+		width: 100%;
+	}
+}
+.full,.half,.third,.quater,.fifth{
+	display: block;
+	float: left;
+}
+
+/* Center Wrap */
+.centerOuterWrap{
+	display: table;
+}
+
+.centerWrap{
+	display: table-cell;
+	vertical-align: middle;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center; 
+}
