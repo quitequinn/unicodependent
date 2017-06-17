@@ -7,6 +7,7 @@
 
 <!-- Javascript -->
 <!-- In the footer for better performance -->
+<script src="build/js/unicodependent.js"></script>
 <script src="build/js/scripts.js"></script>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

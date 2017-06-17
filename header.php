@@ -32,16 +32,17 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 <!-- Stylesheet -->
-<link rel="stylesheet" href="<?php echo get_bloginfo('template_directory');?>/build/css/style.css" type="text/css">
+<link rel="stylesheet" href="build/css/style.css" type="text/css"/>
 
 <!-- CDN Dependencies -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"/>
 <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
 
 <!-- Type Dependencies -->
-
+<script src="//use.typekit.net/oja7zyw.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
 
 <!-- HTML5 Shim for IE 6-8 -->
 <!--[if lt IE 9]>
@@ -64,6 +65,3 @@
   </section>
 <![endif]-->
 
-<div class="header row">
-	
-</div>

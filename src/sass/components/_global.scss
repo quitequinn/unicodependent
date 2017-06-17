@@ -16,12 +16,14 @@ a, a:visited, .linkAlike{
 }
 
 h4, h5, h6, span, ul, ol, p, h4 a, h5 a, h6 a, ul a, ol a, p a{
-	font-family: "freight-sans-pro", sans-serif;
+	font-family: $font-primary, sans-serif;
 	text-rendering: optimizeLegibility;
 	font-smoothing: antialiased;
 	-webkit-font-smoothing: antialiased;
 }
 .content{
+	width: 100%;
+	overflow-x: hidden;
 	h4, h5, h6, span, ul, ol, p, h4 a, h5 a, h6 a, ul a, ol a, p a{
 		a, .linkAlike{
 		  	background-image: linear-gradient(to bottom,transparent 50%,rgba($color-white, 0.75) 50%);
@@ -38,10 +40,10 @@ h4, h5, h6, span, ul, ol, p, h4 a, h5 a, h6 a, ul a, ol a, p a{
 	transition: color $trans;
 }
 h1{
-	font-family: "Brando Hairline", serif;
+	font-family: $font-primary, serif;
 }
-h2, h3{
-	font-family: "Brando Extralight", serif;
+h2, .h3, h3{
+	font-family: $font-primary, serif;
 }
 .hidder{
 	background: rgba($color-black, 0.5);
@@ -277,7 +279,44 @@ footer{
 	}
 }
 
+@mixin flatGradient( $n-rows, $color) {
+  	$trans : 1 / $n-rows;
+  @for $i from 1 through $n-rows{
+   	.flatGrad:nth-of-type(#{$i}) {
+   		background: rgba($color, 1 - $trans*$i);
+    }
+  }
+}
+ 
 
+.flatWrap{
+	@include flatGradient( 4, $color-primary);
+  	>div{
 
+	  	width: 100%;
+	  	overflow: hidden;
+	  	display: block;
+	  	padding: 20px 0;
+	  	>section{
+		  	vertical-align: middle;
+		  	margin-left: auto;
+		  	margin-right: auto;
+	  	}
+	  	p{
+		  	outline: none!important;
+		  	box-shadow: none!important;
+		  	border: none!important;
+		  	padding: 0;
+			margin: 0;
+			padding-top: 20px;
+	  	}
+	  	section > div{
+		  	overflow: hidden;
+		  	width: 100%;
+		  	padding: 0 50px;
+		  	display: inline-block;
+		}
+	}
+}
 
 

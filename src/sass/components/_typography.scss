@@ -222,21 +222,21 @@ h1, h2, h3, h4, h5, h6 {
 
 h1,
 .h1 {
-	@include type-size-calc(180px);
+	@include type-size-calc(100px);
 	@media (max-width: $bp-xlarge) {
-		@include type-size-calc-xlarge(180px);
+		@include type-size-calc-xlarge(100px);
 	}
 	@media (max-width: $bp-large) {
-		@include type-size-calc-large(180px);
+		@include type-size-calc-large(100px);
 	}
 	@media (max-width: $bp-medium) {
-		@include type-size-calc-medium(180px);
+		@include type-size-calc-medium(100px);
 	}
 	@media (max-width: $bp-small) {
-		@include type-size-calc-small(180px);
+		@include type-size-calc-small(100px);
 	}
 	@media (max-width: $bp-xsmall) {
-		@include type-size-calc-xsmall(180px);
+		@include type-size-calc-xsmall(100px);
 	}
 }
 h2,
@@ -260,21 +260,21 @@ h2,
 }
 h3,
 .h3 {
-	@include type-size-calc(124px);
+	@include type-size-calc(70px);
 	@media (max-width: $bp-xlarge) {
-		@include type-size-calc-xlarge(124px);
+		@include type-size-calc-xlarge(70px);
 	}
 	@media (max-width: $bp-large) {
-		@include type-size-calc-large(124px);
+		@include type-size-calc-large(70px);
 	}
 	@media (max-width: $bp-medium) {
-		@include type-size-calc-medium(124px);
+		@include type-size-calc-medium(70px);
 	}
 	@media (max-width: $bp-small) {
-		@include type-size-calc-small(124px);
+		@include type-size-calc-small(70px);
 	}
 	@media (max-width: $bp-xsmall) {
-		@include type-size-calc-xsmall(124px);
+		@include type-size-calc-xsmall(70px);
 	}
 }
 h4,
